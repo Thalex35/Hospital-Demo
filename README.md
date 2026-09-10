@@ -1,118 +1,110 @@
 # TheoWeb Healthcare Demo
 
-Projet portfolio présentant une expérience de santé numérique moderne et interactive. Il ne représente pas un établissement médical réel : les contenus cliniques, patients, professionnels, tarifs et résultats sont fictifs.
+Une démonstration portfolio d'une expérience de santé numérique moderne : prise de rendez-vous, espace patient, suivi de résultats, FAQ et assistance interactive.
 
-Objectif du prototype
+> Ce projet ne représente pas un établissement médical réel. Les professionnels, services, horaires, tarifs, patients, résultats et témoignages affichés sont fictifs et ne constituent pas un avis médical.
 
-Créer une version améliorée du site qui montre clairement ce que le cabinet médical pourrait devenir avec des fonctionnalités plus modernes, une meilleure expérience utilisateur, et plus d’interactivité.
+## Aperçu
 
-Ce que tu dois faire
+TheoWeb Healthcare Demo montre comment un établissement de santé pourrait offrir un parcours patient plus simple et plus rassurant, sur mobile comme sur ordinateur.
 
-Reprendre le contenu principal du site actuel, mais le présenter avec un design plus moderne.
+Les parcours inclus sont :
 
-Améliorer l’interface pour qu’elle soit plus claire, plus professionnelle et plus facile à utiliser.
+- présentation des services de santé illustratifs ;
+- prise de rendez-vous en quatre étapes ;
+- confirmation visuelle d'une demande ;
+- espace patient fictif avec résultats, rendez-vous et tendances ;
+- FAQ avec recherche ;
+- assistant de démonstration ;
+- page de contact avec téléphone, email et WhatsApp.
 
-Ajouter des fonctionnalités prototypes qui montrent de la valeur ajoutée.
+## Identité du projet
 
-Fonctionnalités à intégrer dans le prototype
+Les informations publiques du projet sont centralisées dans [`src/data/business.ts`](src/data/business.ts).
 
-Prise de rendez-vous en ligne
+| Élément | Valeur |
+| --- | --- |
+| Nom | TheoWeb Healthcare Demo |
+| Type | Projet portfolio / démonstration réaliste |
+| Email | louisjustetheodore@gmail.com |
+| Téléphone et WhatsApp | +509 4634 4841 |
 
-Choix du service / spécialiste
+Pour réutiliser ce projet pour une entreprise réelle, modifiez d'abord ce fichier de configuration. Les données cliniques fictives sont conservées séparément dans [`src/data/site.ts`](src/data/site.ts).
 
-Sélection d’une date et d’une heure
+## Technologies
 
-Confirmation visuelle de la demande
+- React 19 et TypeScript
+- TanStack Start et TanStack Router
+- Vite
+- Tailwind CSS 4
+- Radix UI et Lucide Icons
 
-Formulaire patient intelligent
+## Démarrage local
 
-Nom, téléphone, email
+Prérequis : Node.js 20 ou une version plus récente, puis npm.
 
-Motif de consultation
-
-Champ pour ajouter des informations utiles avant le rendez-vous
-
-Chat / assistance rapide
-
-Un bouton de contact rapide
-
-Une petite zone FAQ ou assistant pour guider le patient
-
-Section services améliorée
-
-Présentation claire des spécialités médicales
-
-Cartes visuelles propres et modernes
-
-Section résultats / suivi
-
-Espace prototype pour montrer comment les patients pourraient suivre leurs résultats, leurs rendez-vous ou leurs demandes
-
-Design responsive
-
-Le prototype doit être bien adapté mobile, tablette et desktop
-
-Style visuel souhaité
-
-Design clean, moderne, rassurant
-
-Couleurs professionnelles liées au secteur médical
-
-Typographie lisible
-
-Interface simple mais premium
-
-Navigation fluide et intuitive
-
-Pages / sections à prévoir
-
-Accueil
-
-À propos
-
-Services
-
-Prendre rendez-vous
-
-Contact
-
-FAQ
-
-Suivi patient / espace résultats
-
-Important
-
-Ce projet est un prototype uniquement
-
-Ne pas chercher à connecter de vraies bases de données ou vrais systèmes de paiement
-
-Les formulaires et boutons doivent juste simuler le fonctionnement
-
-Le but est de produire une maquette réaliste à présenter au client
-
-Résultat attendu
-
-Je veux une version qui donne l’impression d’un vrai site médical moderne, avec des fonctionnalités qui montrent comment le cabinet pourrait améliorer l’expérience des patients et automatiser certaines tâches.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://healthsync-prototype.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/183bd3c9-e8a0-4d0c-969b-ca88c8097225).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
+git clone https://github.com/Thalex35/healthsync-prototype.git
+cd healthsync-prototype
+npm install
 npm run dev
 ```
+
+Lancez ensuite l'adresse locale indiquée dans le terminal.
+
+## Commandes disponibles
+
+```bash
+# Démarrer le serveur de développement
+npm run dev
+
+# Vérifier le style et les règles de qualité
+npm run lint
+
+# Générer une version de production
+npm run build
+
+# Prévisualiser la version de production
+npm run preview
+
+# Formater le code
+npm run format
+```
+
+## Fonctionnalités simulées
+
+Les interactions suivantes sont volontairement simulées et n'envoient ni ne stockent de données :
+
+- formulaire de contact ;
+- demande de rendez-vous ;
+- connexion à l'espace patient ;
+- téléchargement et partage de résultats ;
+- conversation avec l'assistant.
+
+Ne connectez pas de données de patients, d'identifiants, de clés API ou d'informations médicales réelles sans mettre en place les contrôles de sécurité, la conformité et l'infrastructure nécessaires.
+
+## Structure du projet
+
+```text
+src/
+├── assets/            Images locales
+├── components/site/   En-tête, pied de page et assistant
+├── components/ui/     Composants d'interface réutilisables
+├── data/              Identité publique et données fictives
+├── routes/            Pages et métadonnées SEO
+└── styles.css          Styles globaux et thème
+```
+
+## Personnalisation
+
+Avant d'adapter ce projet à une organisation réelle :
+
+1. Remplacez l'identité, les coordonnées et les liens dans `src/data/business.ts`.
+2. Remplacez le logo et le favicon.
+3. Vérifiez chaque service, horaire, prix et information clinique dans `src/data/site.ts`.
+4. Ajoutez un système sécurisé de formulaires, rendez-vous et dossiers patients avant toute mise en production.
+5. Ajoutez les métadonnées de domaine finales, une image Open Graph et les mentions légales appropriées.
+
+## Contact
+
+Pour discuter de ce projet ou d'une adaptation : [louisjustetheodore@gmail.com](mailto:louisjustetheodore@gmail.com) · [+509 4634 4841](https://wa.me/50946344841)
