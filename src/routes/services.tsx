@@ -12,17 +12,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/site";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & spécialités — MDS Lab Haïti" },
+      { title: `Services illustratifs — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "Biologie médicale, microbiologie, imagerie, cardiologie, prélèvement à domicile et santé au travail à Port-au-Prince.",
+          "Exemples de services de santé et de parcours de réservation pour un projet portfolio.",
       },
-      { property: "og:title", content: "Services & spécialités — MDS Lab Haïti" },
+      { property: "og:title", content: `Services illustratifs — ${businessConfig.name}` },
       {
         property: "og:description",
         content: "Découvrez nos analyses, délais et tarifs indicatifs, puis réservez en ligne.",
@@ -46,16 +47,19 @@ function Services() {
     <div>
       <section className="border-b border-border bg-soft-gradient">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Nos services</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Services illustratifs</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold sm:text-5xl">
-            Un plateau technique complet, des délais maîtrisés
+            Des parcours de soins pensés pour le numérique
           </h1>
           <p className="mt-5 max-w-2xl text-muted-foreground">
-            Plus de 120 analyses réalisées sur place, avec des tarifs indicatifs transparents et une
-            réservation en ligne pour chaque prestation.
+            Ces prestations, tarifs et délais sont des exemples destinés à démontrer une réservation
+            en ligne fluide et une présentation claire des services.
           </p>
         </div>
       </section>
+      <p className="mx-auto max-w-7xl px-4 pb-4 text-center text-xs text-muted-foreground sm:px-6">
+        {mockDataNotice}
+      </p>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

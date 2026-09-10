@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Activity, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export function Footer() {
   return (
@@ -10,11 +11,10 @@ export function Footer() {
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-hero-gradient text-primary-foreground">
               <Activity className="h-5 w-5" />
             </span>
-            <span className="font-display text-lg font-extrabold">MDS Lab</span>
+            <span className="font-display text-lg font-extrabold">{businessConfig.name}</span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Laboratoire d'analyses médicales et centre de soins, ouvert 7 jours sur 7 pour vous
-            accompagner avec des technologies de pointe.
+            {businessConfig.description}
           </p>
         </div>
 
@@ -49,40 +49,38 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide">Contact</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wide">Contact du créateur</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Delmas 31, Port-au-Prince,
-              Haïti
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <a href={businessConfig.contact.phoneHref} className="hover:text-foreground">
+                {businessConfig.contact.phone}
+              </a>
             </li>
             <li className="flex gap-2">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> +509 3700 0000
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <a href={`mailto:${businessConfig.contact.email}`} className="break-all hover:text-foreground">
+                {businessConfig.contact.email}
+              </a>
             </li>
             <li className="flex gap-2">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> contact@mdslabhaiti.com
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              Coordonnées d'un projet portfolio — aucune clinique réelle n'est représentée.
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide">Horaires</h3>
-          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-2">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Lun – Ven : 6h30 – 18h00
-            </li>
-            <li className="flex gap-2">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Sam – Dim : 7h00 – 15h00
-            </li>
-            <li className="flex gap-2">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Urgences : 24h/24
-            </li>
-          </ul>
+          <h3 className="text-sm font-semibold uppercase tracking-wide">À propos de la démo</h3>
+          <p className="mt-4 flex gap-2 text-sm text-muted-foreground">
+            <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            Les horaires et disponibilités vus dans les parcours sont des exemples fictifs.
+          </p>
         </div>
       </div>
 
       <div className="border-t border-border px-4 py-6 text-center text-xs text-muted-foreground sm:px-6">
-        Prototype de démonstration — © {new Date().getFullYear()} MDS Lab Haïti. Les données
-        affichées sont fictives.
+        © {new Date().getFullYear()} {businessConfig.name}. {mockDataNotice}
       </div>
     </footer>
   );

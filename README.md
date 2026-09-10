@@ -1,7 +1,6 @@
-# Med Prototype Pro
+# TheoWeb Healthcare Demo
 
-Je veux que tu refasses ce site web médical (https://mdslabhaiti.com/) en un prototype moderne, professionnel et plus interactif, à partir du site actuel que je vais te fournir.
-L’objectif n’est pas de créer le vrai site final, mais de produire une maquette / prototype convaincante pour préparer une proposition commerciale à un client.
+Projet portfolio présentant une expérience de santé numérique moderne et interactive. Il ne représente pas un établissement médical réel : les contenus cliniques, patients, professionnels, tarifs et résultats sont fictifs.
 
 Objectif du prototype
 

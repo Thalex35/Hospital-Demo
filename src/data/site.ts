@@ -143,7 +143,7 @@ export const faqs = [
   },
   {
     q: "Proposez-vous le prélèvement à domicile ?",
-    a: "Oui, du lundi au samedi entre 6h30 et 11h, dans la zone métropolitaine de Port-au-Prince. La réservation se fait 24 heures à l'avance.",
+    a: "Oui, dans cette démonstration, un prélèvement à domicile peut être réservé du lundi au samedi entre 6h30 et 11h, 24 heures à l'avance.",
   },
   {
     q: "Comment annuler ou reporter un rendez-vous ?",
