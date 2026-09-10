@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { businessConfig } from "@/data/business";
 
 const nav = [
   { to: "/", label: "Accueil" },
@@ -23,9 +24,11 @@ export function Header() {
             <Activity className="h-5 w-5" />
           </span>
           <span className="min-w-0">
-            <span className="block truncate font-display text-lg font-extrabold">MDS Lab</span>
+            <span className="block truncate font-display text-lg font-extrabold">
+              {businessConfig.name}
+            </span>
             <span className="block truncate text-xs text-muted-foreground">
-              Laboratoire médical · Haïti
+              Projet portfolio · démonstration réaliste
             </span>
           </span>
         </Link>
@@ -45,10 +48,10 @@ export function Header() {
             ))}
           </nav>
           <a
-            href="tel:+50937000000"
+            href={businessConfig.contact.phoneHref}
             className="hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-primary xl:inline-flex"
           >
-            <Phone className="h-4 w-4" /> +509 3700 0000
+            <Phone className="h-4 w-4" /> {businessConfig.contact.phone}
           </a>
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link to="/rendez-vous" search={{ service: undefined }}>

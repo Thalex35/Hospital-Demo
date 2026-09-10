@@ -4,21 +4,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import missionImg from "@/assets/hero-lab.jpg";
 import { specialists } from "@/data/site";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
-      { title: "À propos — MDS Lab Haïti" },
+      { title: `À propos — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "25 ans au service de la santé en Haïti : équipe de biologistes, radiologues et infirmières, démarche qualité et technologies modernes.",
+          businessConfig.description,
       },
-      { property: "og:title", content: "À propos — MDS Lab Haïti" },
+      { property: "og:title", content: `À propos — ${businessConfig.name}` },
       {
         property: "og:description",
         content:
-          "Une équipe médicale expérimentée et un plateau technique moderne à Port-au-Prince.",
+          "Découvrez le concept et les parcours fictifs de ce projet portfolio santé.",
       },
     ],
   }),
@@ -30,14 +31,13 @@ function About() {
     <div>
       <section className="border-b border-border bg-soft-gradient">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">À propos</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">À propos du projet</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold sm:text-5xl">
-            Une pratique médicale parmi les plus anciennes et les plus respectées du pays
+            Une démonstration d'expérience patient moderne
           </h1>
           <p className="mt-5 max-w-2xl text-muted-foreground">
-            Depuis 25 ans, MDS Lab accompagne les familles haïtiennes, les cliniques et les
-            entreprises avec des analyses fiables, des délais courts et une relation humaine avant
-            tout.
+            {businessConfig.description} Il ne représente pas un établissement de santé réel et
+            les contenus cliniques sont volontairement fictifs.
           </p>
         </div>
       </section>
@@ -52,11 +52,10 @@ function About() {
           className="w-full rounded-3xl object-cover shadow-soft"
         />
         <div>
-          <h2 className="text-3xl font-extrabold">Notre mission</h2>
+          <h2 className="text-3xl font-extrabold">Objectif du projet</h2>
           <p className="mt-4 text-muted-foreground">
-            Rendre le diagnostic accessible, rapide et compréhensible. Chaque résultat est validé
-            par un biologiste, expliqué simplement et disponible en ligne pour être partagé avec
-            votre médecin traitant.
+            Montrer comment une interface claire peut simplifier le parcours : prise de rendez-vous,
+            préparation, suivi des demandes et accès aux résultats dans un environnement rassurant.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
@@ -93,9 +92,10 @@ function About() {
 
       <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-3xl font-extrabold">Notre équipe</h2>
+          <h2 className="text-3xl font-extrabold">Professionnels fictifs</h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Des spécialistes disponibles sur rendez-vous, du lundi au dimanche.
+            Ces profils illustrent le parcours de réservation et ne représentent pas des personnes
+            ou une disponibilité réelles.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {specialists.map((s) => (
@@ -123,6 +123,9 @@ function About() {
           </Button>
         </div>
       </section>
+      <p className="mx-auto max-w-7xl px-4 pb-4 text-center text-xs text-muted-foreground sm:px-6">
+        {mockDataNotice}
+      </p>
     </div>
   );
 }

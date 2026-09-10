@@ -17,23 +17,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/data/site";
 import heroImg from "@/assets/hero-lab.jpg";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MDS Lab Haïti — Analyses médicales & rendez-vous en ligne" },
+      { title: `${businessConfig.name} — Expérience patient numérique` },
       {
         name: "description",
         content:
-          "Laboratoire d'analyses médicales à Port-au-Prince, ouvert 7j/7 : rendez-vous en ligne, résultats numériques et suivi patient sécurisé.",
+          businessConfig.description,
       },
       {
         property: "og:title",
-        content: "MDS Lab Haïti — Analyses médicales & rendez-vous en ligne",
+        content: `${businessConfig.name} — Expérience patient numérique`,
       },
       {
         property: "og:description",
-        content: "Rendez-vous en ligne, résultats numériques et suivi patient sécurisé, 7j/7.",
+        content: "Une démonstration de prise de rendez-vous, suivi patient et assistance numérique.",
       },
     ],
   }),
@@ -57,15 +58,14 @@ function Index() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
           <div className="text-primary-foreground">
             <Badge className="border-0 bg-white/15 text-primary-foreground hover:bg-white/20">
-              Ouvert 7 jours sur 7
+              Projet portfolio · interface démonstrative
             </Badge>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-              Votre santé, analysée avec précision.
+              Une expérience patient, imaginée avec précision.
             </h1>
             <p className="mt-5 max-w-xl text-base opacity-90 sm:text-lg">
-              MDS Lab combine des technologies de laboratoire de pointe et une expérience patient
-              entièrement numérique : rendez-vous en ligne, rappels automatiques et résultats
-              accessibles en un clic.
+              {businessConfig.name} présente une expérience de santé numérique : rendez-vous en
+              ligne, rappels, suivi des demandes et résultats accessibles en un clic.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" variant="secondary">
@@ -84,9 +84,9 @@ function Index() {
             </div>
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-white/20 pt-6">
               {[
-                { k: "25 ans", v: "d'expérience" },
-                { k: "120+", v: "analyses proposées" },
-                { k: "24h", v: "délai moyen" },
+                { k: "25 ans", v: "exemple d'ancienneté" },
+                { k: "120+", v: "exemples d'analyses" },
+                { k: "24h", v: "délai illustratif" },
               ].map((s) => (
                 <div key={s.k}>
                   <dt className="font-display text-2xl font-extrabold">{s.k}</dt>
@@ -99,7 +99,7 @@ function Index() {
           <div className="relative">
             <img
               src={heroImg}
-              alt="Technicien de laboratoire MDS Lab utilisant un automate d'analyse"
+              alt="Technicien de laboratoire utilisant un automate d'analyse"
               width={1600}
               height={1100}
               className="w-full rounded-3xl object-cover shadow-lift"
@@ -161,7 +161,7 @@ function Index() {
                 Nos spécialités
               </p>
               <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
-                Un plateau technique complet
+                Des services de santé illustratifs
               </h2>
             </div>
             <Button asChild variant="outline">
@@ -236,7 +236,7 @@ function Index() {
       {/* Témoignages */}
       <section className="bg-surface py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Ils nous font confiance</h2>
+          <h2 className="text-3xl font-extrabold sm:text-4xl">Scénarios d'expérience patient</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
               {
@@ -267,6 +267,10 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <p className="mx-auto max-w-7xl px-4 pb-4 text-center text-xs text-muted-foreground sm:px-6">
+        {mockDataNotice}
+      </p>
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, Send, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { businessConfig } from "@/data/business";
 
 type Msg = { from: "bot" | "user"; text: string };
 
@@ -16,7 +17,7 @@ const quickAnswers: { q: string; a: string }[] = [
   },
   {
     q: "Quels sont vos horaires ?",
-    a: "Nous sommes ouverts 7j/7 : 6h30–18h en semaine, 7h–15h le week-end. Les urgences sont prises en charge 24h/24.",
+    a: "Dans cette démo, les disponibilités sont illustratives. Elles ne correspondent pas aux horaires d'un établissement réel.",
   },
   {
     q: "Puis-je annuler un rendez-vous ?",
@@ -28,7 +29,10 @@ export function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Msg[]>([
-    { from: "bot", text: "Bonjour 👋 Je suis l'assistant MDS Lab. Comment puis-je vous aider ?" },
+    {
+      from: "bot",
+      text: "Bonjour 👋 Je suis l'assistant de démonstration. Comment puis-je vous guider dans ce parcours fictif ?",
+    },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -46,7 +50,7 @@ export function ChatWidget() {
         from: "bot",
         text:
           match?.a ??
-          "Merci ! Un membre de notre équipe vous répondra sous peu. Pour une réponse immédiate, appelez le +509 3700 0000.",
+          `Merci ! Ceci est une démonstration sans assistance médicale réelle. Pour joindre le créateur du projet : ${businessConfig.contact.phone}.`,
       },
     ]);
     setInput("");
@@ -62,8 +66,8 @@ export function ChatWidget() {
           >
             <div className="flex items-center justify-between bg-hero-gradient px-4 py-3 text-primary-foreground">
               <div>
-                <p className="text-sm font-semibold">Assistance MDS Lab</p>
-                <p className="text-xs opacity-90">Réponse moyenne : 2 min</p>
+                <p className="text-sm font-semibold">Assistance de démonstration</p>
+                <p className="text-xs opacity-90">Parcours fictif · aucune réponse médicale réelle</p>
               </div>
               <button onClick={() => setOpen(false)} aria-label="Fermer le chat">
                 <X className="h-5 w-5" />
@@ -122,10 +126,10 @@ export function ChatWidget() {
             </form>
 
             <a
-              href="tel:+50937000000"
+              href={businessConfig.contact.phoneHref}
               className="flex items-center justify-center gap-2 border-t border-border bg-muted/60 py-2.5 text-xs font-semibold text-primary"
             >
-              <Phone className="h-3.5 w-3.5" /> Appeler le laboratoire
+              <Phone className="h-3.5 w-3.5" /> Contacter le créateur
             </a>
           </div>
         )}

@@ -15,6 +15,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ChatWidget } from "@/components/site/ChatWidget";
 import { Toaster } from "@/components/ui/sonner";
+import { businessConfig } from "@/data/business";
 
 function NotFoundComponent() {
   return (
@@ -81,11 +82,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MDS Lab Haïti — Laboratoire médical moderne" },
+      { title: `${businessConfig.name} — Projet portfolio santé` },
       {
         name: "description",
         content:
-          "Laboratoire d'analyses médicales à Port-au-Prince : rendez-vous en ligne, résultats numériques et suivi patient.",
+          businessConfig.description,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

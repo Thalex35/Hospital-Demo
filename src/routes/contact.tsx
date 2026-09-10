@@ -1,26 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Clock, Mail, MapPin, MessageSquare, Phone, Send } from "lucide-react";
+import { Mail, MessageSquare, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { businessConfig } from "@/data/business";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — MDS Lab Haïti" },
+      { title: `Contact — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "Contactez MDS Lab à Delmas 31, Port-au-Prince : téléphone, email, horaires et formulaire de demande.",
+          "Contactez le créateur de ce projet portfolio santé.",
       },
-      { property: "og:title", content: "Contact — MDS Lab Haïti" },
+      { property: "og:title", content: `Contact — ${businessConfig.name}` },
       {
         property: "og:description",
-        content: "Téléphone, email, adresse et formulaire de contact du laboratoire MDS Lab.",
+        content: "Coordonnées du créateur du projet et formulaire de démonstration.",
       },
     ],
   }),
@@ -35,10 +36,9 @@ function Contact() {
       <section className="border-b border-border bg-soft-gradient">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:py-20">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">Contact</p>
-          <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">Nous sommes à votre écoute</h1>
+          <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">Parlons du projet</h1>
           <p className="mt-5 max-w-2xl text-muted-foreground">
-            Une question sur une analyse, un résultat ou une prise en charge ? Notre équipe répond 7
-            jours sur 7.
+            Une question sur cette démonstration ou un projet similaire ? Contactez le créateur.
           </p>
         </div>
       </section>
@@ -46,12 +46,12 @@ function Contact() {
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <Card className="border-border/70 shadow-soft">
           <CardContent className="p-6 sm:p-8">
-            <h2 className="text-xl font-bold">Envoyer un message</h2>
+            <h2 className="text-xl font-bold">Envoyer un message de démonstration</h2>
             {sent ? (
               <div className="mt-6 rounded-2xl border border-success/40 bg-success/10 p-6">
                 <p className="font-semibold text-success">Message envoyé</p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Merci ! Nous vous répondons généralement sous 2 heures ouvrées.
+                  Merci ! Cette confirmation est illustrative : le formulaire n'envoie aucune donnée.
                 </p>
                 <Button variant="outline" className="mt-4" onClick={() => setSent(false)}>
                   Écrire un autre message
@@ -63,7 +63,7 @@ function Contact() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   setSent(true);
-                  toast.success("Message envoyé (démonstration)");
+                  toast.success("Message simulé — aucune donnée envoyée");
                 }}
               >
                 <div className="space-y-2">
@@ -108,23 +108,17 @@ function Contact() {
 
         <div className="space-y-4">
           {[
-            { icon: MapPin, t: "Adresse", d: "Delmas 31, Rue Mercier, Port-au-Prince, Haïti" },
             {
               icon: Phone,
               t: "Téléphone",
-              d: "+509 3700 0000 · +509 2800 1111",
-              href: "tel:+50937000000",
+              d: businessConfig.contact.phone,
+              href: businessConfig.contact.phoneHref,
             },
             {
               icon: Mail,
               t: "Email",
-              d: "contact@mdslabhaiti.com",
-              href: "mailto:contact@mdslabhaiti.com",
-            },
-            {
-              icon: Clock,
-              t: "Horaires",
-              d: "Lun–Ven 6h30–18h · Sam–Dim 7h–15h · Urgences 24h/24",
+              d: businessConfig.contact.email,
+              href: `mailto:${businessConfig.contact.email}`,
             },
           ].map((c) => (
             <Card key={c.t} className="border-border/70">
@@ -152,10 +146,18 @@ function Contact() {
           <Card className="border-0 bg-hero-gradient text-primary-foreground">
             <CardContent className="p-5">
               <MessageSquare className="h-6 w-6" />
-              <p className="mt-3 font-semibold">Besoin d'une réponse immédiate ?</p>
+              <p className="mt-3 font-semibold">Préférez WhatsApp ?</p>
               <p className="mt-1 text-sm opacity-90">
-                Ouvrez l'assistant en bas à droite : horaires, préparation, résultats.
+                Contactez directement le créateur du projet sur WhatsApp.
               </p>
+              <a
+                href={businessConfig.contact.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex text-sm font-semibold underline underline-offset-4"
+              >
+                Ouvrir WhatsApp
+              </a>
             </CardContent>
           </Card>
         </div>

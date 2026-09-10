@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { services, specialists, timeSlots } from "@/data/site";
+import { mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/rendez-vous")({
   validateSearch: (search: Record<string, unknown>) => ({
@@ -26,16 +27,16 @@ export const Route = createFileRoute("/rendez-vous")({
   }),
   head: () => ({
     meta: [
-      { title: "Prendre rendez-vous en ligne — MDS Lab Haïti" },
+      { title: `Prise de rendez-vous — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "Réservez votre analyse ou consultation en 4 étapes : service, spécialiste, créneau et confirmation immédiate.",
+          "Démonstration d'un parcours de prise de rendez-vous en quatre étapes.",
       },
-      { property: "og:title", content: "Prendre rendez-vous en ligne — MDS Lab Haïti" },
+      { property: "og:title", content: `Prise de rendez-vous — ${businessConfig.name}` },
       {
         property: "og:description",
-        content: "Réservation 24h/24, confirmation immédiate et rappel automatique la veille.",
+        content: "Un parcours de prise de rendez-vous fictif et interactif.",
       },
     ],
   }),
@@ -96,7 +97,7 @@ function Booking() {
       form.reason.trim() !== "");
 
   const reference = useMemo(
-    () => "MDS-" + Math.random().toString(36).slice(2, 7).toUpperCase(),
+    () => "DEMO-" + Math.random().toString(36).slice(2, 7).toUpperCase(),
     [],
   );
 
@@ -110,8 +111,8 @@ function Booking() {
             </span>
             <h1 className="mt-6 text-3xl font-extrabold">Demande envoyée !</h1>
             <p className="mt-3 text-muted-foreground">
-              Votre rendez-vous est pré-réservé. Vous recevrez une confirmation par SMS au{" "}
-              <span className="font-medium text-foreground">{form.phone}</span> sous 15 minutes.
+              Votre demande fictive est affichée ci-dessous. Aucune donnée n'est envoyée ni aucun
+              SMS n'est déclenché pour le numéro <span className="font-medium text-foreground">{form.phone}</span>.
             </p>
 
             <div className="mt-8 grid gap-3 rounded-2xl border border-border bg-muted/40 p-6 text-left text-sm">
@@ -153,7 +154,7 @@ function Booking() {
               </Button>
             </div>
             <p className="mt-6 text-xs text-muted-foreground">
-              Prototype de démonstration — aucune donnée n'est réellement enregistrée.
+              {mockDataNotice} Aucune donnée n'est réellement enregistrée.
             </p>
           </CardContent>
         </Card>
@@ -165,7 +166,7 @@ function Booking() {
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:py-16">
       <h1 className="text-3xl font-extrabold sm:text-4xl">Prendre rendez-vous</h1>
       <p className="mt-3 text-muted-foreground">
-        4 étapes, moins d'une minute. Confirmation immédiate et rappel automatique la veille.
+        4 étapes pour illustrer une expérience de réservation. Aucune demande réelle n'est envoyée.
       </p>
 
       {/* Stepper */}

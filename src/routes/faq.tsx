@@ -10,17 +10,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { faqs } from "@/data/site";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "Questions fréquentes — MDS Lab Haïti" },
+      { title: `Questions fréquentes — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "Jeûne, délais de résultats, assurances, prélèvement à domicile : les réponses aux questions les plus posées à MDS Lab.",
+          "Questions et réponses illustratives pour une expérience de santé numérique en démonstration.",
       },
-      { property: "og:title", content: "Questions fréquentes — MDS Lab Haïti" },
+      { property: "og:title", content: `Questions fréquentes — ${businessConfig.name}` },
       {
         property: "og:description",
         content: "Toutes les réponses sur la préparation, les délais et le suivi de vos analyses.",
@@ -43,7 +44,8 @@ function Faq() {
       <p className="text-sm font-semibold uppercase tracking-wide text-primary">FAQ</p>
       <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">Questions fréquentes</h1>
       <p className="mt-4 text-muted-foreground">
-        Recherchez une réponse, ou contactez-nous si votre question n'est pas traitée.
+        Consultez des exemples de réponses pour ce parcours fictif. Elles ne constituent pas un avis
+        médical.
       </p>
 
       <div className="relative mt-8">
@@ -74,7 +76,7 @@ function Faq() {
       <div className="mt-12 rounded-3xl bg-surface p-8 text-center">
         <h2 className="text-xl font-bold">Vous ne trouvez pas votre réponse ?</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Notre équipe vous répond 7j/7, par téléphone ou via le formulaire de contact.
+          Contactez le créateur du projet si vous souhaitez échanger sur cette démonstration.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button asChild>
@@ -87,6 +89,7 @@ function Faq() {
           </Button>
         </div>
       </div>
+      <p className="mt-8 text-center text-xs text-muted-foreground">{mockDataNotice}</p>
     </div>
   );
 }

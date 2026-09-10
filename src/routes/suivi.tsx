@@ -19,17 +19,18 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { businessConfig, mockDataNotice } from "@/data/business";
 
 export const Route = createFileRoute("/suivi")({
   head: () => ({
     meta: [
-      { title: "Espace patient & résultats — MDS Lab Haïti" },
+      { title: `Espace patient — ${businessConfig.name}` },
       {
         name: "description",
         content:
-          "Consultez vos résultats d'analyses, suivez vos rendez-vous et partagez vos comptes rendus avec votre médecin.",
+          "Démonstration d'un espace patient avec résultats, rendez-vous et tendances fictifs.",
       },
-      { property: "og:title", content: "Espace patient & résultats — MDS Lab Haïti" },
+      { property: "og:title", content: `Espace patient — ${businessConfig.name}` },
       {
         property: "og:description",
         content: "Résultats en ligne, historique et suivi de vos demandes en un seul endroit.",
@@ -155,7 +156,7 @@ function Suivi() {
               </p>
               <div className="space-y-2">
                 <Label htmlFor="id">Numéro de dossier</Label>
-                <Input id="id" defaultValue="MDS-48210" />
+                <Input id="id" defaultValue="DEMO-48210" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="pw">Code d'accès</Label>
@@ -180,7 +181,7 @@ function Suivi() {
           </span>
           <div className="min-w-0">
             <h1 className="truncate text-xl font-extrabold sm:text-2xl">Marie-Ange Joseph</h1>
-            <p className="text-sm text-muted-foreground">Dossier MDS-48210</p>
+            <p className="text-sm text-muted-foreground">Dossier DEMO-48210</p>
           </div>
         </div>
         <Button variant="outline" onClick={() => setLoggedIn(false)}>
@@ -309,7 +310,7 @@ function Suivi() {
       </Tabs>
 
       <p className="mt-10 text-center text-xs text-muted-foreground">
-        Prototype de démonstration — données fictives, aucune connexion à un dossier médical réel.
+        {mockDataNotice} Aucune connexion à un dossier médical réel.
       </p>
     </div>
   );
